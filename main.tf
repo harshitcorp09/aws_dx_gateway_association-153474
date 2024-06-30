@@ -24,5 +24,5 @@ resource "aws_dx_gateway_association" "example" {
 
 resource "aws_ec2_transit_gateway_route_table_association" "example" {
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.example.id
-  transit_gateway_attachment_id  = aws_dx_gateway_association.example.id
+  transit_gateway_attachment_id  = "tgw-attach-01b8986c1da636209"
 }

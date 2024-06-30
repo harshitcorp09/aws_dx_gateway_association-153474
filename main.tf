@@ -8,7 +8,7 @@ resource "aws_dx_gateway" "example" {
 }
 
 resource "aws_ec2_transit_gateway" "example" {
-  amazon_side_asn = "64512"
+  amazon_side_asn = "64513"
 }
 
 resource "aws_ec2_transit_gateway_route_table" "example" {

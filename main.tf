@@ -20,8 +20,14 @@ resource "aws_dx_gateway_association" "example" {
   associated_gateway_id = aws_ec2_transit_gateway.example.id
   allowed_prefixes      = ["10.0.0.0/16"]
 }
+data "aws_ec2_transit_gateway_attachment" "example" {
+  filter {
+    name   = "resource-id"
+    values = [aws_dx_gateway_association.example.id]
+  }
+}
 
 resource "aws_ec2_transit_gateway_route_table_association" "example" {
-  transit_gateway_attachment_id  = aws_dx_gateway_association.example.id
+  transit_gateway_attachment_id  = data.aws_ec2_transit_gateway_attachment.example.id
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.example.id
 }

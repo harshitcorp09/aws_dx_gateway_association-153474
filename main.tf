@@ -16,14 +16,6 @@ resource "aws_ec2_transit_gateway" "example" {
   }
 }
 
-# Create Transit Gateway Route Table
-resource "aws_ec2_transit_gateway_route_table" "example" {
-  transit_gateway_id = aws_ec2_transit_gateway.example.id
-  tags = {
-    Name = "example-transit-gateway-route-table"
-  }
-}
-
 # Associate Direct Connect Gateway with Transit Gateway
 resource "aws_dx_gateway_association" "example" {
   dx_gateway_id      = aws_dx_gateway.example.id

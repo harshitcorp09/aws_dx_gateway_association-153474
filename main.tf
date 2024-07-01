@@ -28,5 +28,5 @@ resource "aws_ec2_transit_gateway_route_table" "example" {
 resource "aws_dx_gateway_association" "example" {
   dx_gateway_id      = aws_dx_gateway.example.id
   allowed_prefixes   = ["10.0.0.0/16"]  # Adjust according to your on-premises network prefixes
-  transit_gateway_id = aws_ec2_transit_gateway.example.id
+  associated_gateway_id = aws_ec2_transit_gateway.example.id
 }

@@ -47,6 +47,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "example" {
   tags = {
     Name = "example-transit-gateway-vpc-attachment"
   }
+transit_gateway_default_route_table_association = false
 }
 # Associate Transit Gateway with Route Table
 resource "aws_ec2_transit_gateway_route_table_association" "example" {

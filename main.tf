@@ -15,10 +15,3 @@ resource "aws_ec2_transit_gateway" "example" {
     Name = "example-transit-gateway"
   }
 }
-
-# Associate Direct Connect Gateway with Transit Gateway
-resource "aws_dx_gateway_association" "example" {
-  dx_gateway_id      = aws_dx_gateway.example.id
-  allowed_prefixes   = ["10.0.0.0/16"]  # Adjust according to your on-premises network prefixes
-  associated_gateway_id = aws_ec2_transit_gateway.example.id
-}

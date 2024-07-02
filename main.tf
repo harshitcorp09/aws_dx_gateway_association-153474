@@ -43,8 +43,15 @@ transit_gateway_default_route_table_association = false
 }
 # Data source to fetch the existing VPC attachment
 data "aws_ec2_transit_gateway_vpc_attachment" "example" {
-  transit_gateway_id = aws_ec2_transit_gateway.example.id
-  vpc_id             = "vpc-065094bd3867b53af"
+  filter {
+    name   = "transit-gateway-id"
+    values = [aws_ec2_transit_gateway.example.id]
+  }
+
+  filter {
+    name   = "vpc-id"
+    values = ["vpc-065094bd3867b53af"]
+  }
 }
 
 # Associate Transit Gateway with Route Table

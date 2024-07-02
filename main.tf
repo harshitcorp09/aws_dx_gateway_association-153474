@@ -27,7 +27,7 @@ resource "aws_ec2_transit_gateway_route_table" "example" {
 # Associate Direct Connect Gateway with Transit Gateway
 resource "aws_dx_gateway_association" "example" {
   dx_gateway_id      = aws_dx_gateway.example.id
-  allowed_prefixes   = ["10.0.0.0/16"]  # Adjust according to your on-premises network prefixes
+  allowed_prefixes   = ["10.0.0.0/16" , "10.1.0.0/16"]  # Adjust according to your on-premises network prefixes
   associated_gateway_id = aws_ec2_transit_gateway.example.id
 }
 # Create a Transit Gateway VPC Attachment as a placeholder
